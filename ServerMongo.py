@@ -90,7 +90,7 @@ def add_comment(id):
             )
 
     elif request.method=="GET":
-        Comment_data = list(CommentTable.find())
+        Comment_data = list(CommentTable.find({"tweet_id":id}))
         for data in Comment_data:
             data["_id"] = str(data["_id"])
         return Response(
